@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="class.phpmailer.php" server="zigna.com.ar/public_html/" local="130374370719146000" remote="130374195000000000" Dst="0" />
+<file name=".gitignore" server="zigna.com.ar/public_html/" local="130374370716650000" remote="130374195000000000" Dst="0" />
+<file name=".travis.yml" server="zigna.com.ar/public_html/" local="130374370717274000" remote="130374195000000000" Dst="0" />
+<file name="class.pop3.php" server="zigna.com.ar/public_html/" local="130374370719770000" remote="130374195000000000" Dst="0" />
+<file name=".scrutinizer.yml" server="zigna.com.ar/public_html/" local="130374370716962000" remote="130374195000000000" Dst="0" />
+<file name="class.smtp.php" server="zigna.com.ar/public_html/" local="130374370720862000" remote="130374195000000000" Dst="0" />
+<file name="composer.json" server="zigna.com.ar/public_html/" local="130374370721330000" remote="130374195000000000" Dst="0" />
+<file name="changelog.md" server="zigna.com.ar/public_html/" local="130374370717586000" remote="130374195000000000" Dst="0" />
+<file name="LICENSE" server="zigna.com.ar/public_html/" local="130374370755026000" remote="130374196200000000" Dst="0" />
+<file name="PHPMailerAutoload.php" server="zigna.com.ar/public_html/" local="130374370755338000" remote="130374196200000000" Dst="0" />
+<file name="README.md" server="zigna.com.ar/public_html/" local="130374370755806000" remote="130374196200000000" Dst="0" />
+<file name="travis.phpunit.xml.dist" server="zigna.com.ar/public_html/" local="130374370760330000" remote="130374196200000000" Dst="0" />
+<file name=".gitignore" server="zigna.com.ar" local="130374370716650000" remote="130380655800000000" Dst="0" />
+<file name=".travis.yml" server="zigna.com.ar" local="130374370717274000" remote="130380655800000000" Dst="0" />
+<file name=".scrutinizer.yml" server="zigna.com.ar" local="130374370716962000" remote="130380655800000000" Dst="0" />
+<file name="changelog.md" server="zigna.com.ar" local="130374370717586000" remote="130380655800000000" Dst="0" />
+<file name="class.pop3.php" server="zigna.com.ar" local="130374370719770000" remote="130380655800000000" Dst="0" />
+<file name="class.smtp.php" server="zigna.com.ar" local="130374370720862000" remote="130380655800000000" Dst="0" />
+<file name="composer.json" server="zigna.com.ar" local="130374370721330000" remote="130380655800000000" Dst="0" />
+<file name="class.phpmailer.php" server="zigna.com.ar" local="130374370719146000" remote="130380655800000000" Dst="0" />
+<file name="LICENSE" server="zigna.com.ar" local="130374370755026000" remote="130380656400000000" Dst="0" />
+<file name="PHPMailerAutoload.php" server="zigna.com.ar" local="130374370755338000" remote="130380656400000000" Dst="0" />
+<file name="README.md" server="zigna.com.ar" local="130374370755806000" remote="130380656400000000" Dst="0" />
+<file name="travis.phpunit.xml.dist" server="zigna.com.ar" local="130374370760330000" remote="130380656400000000" Dst="0" />
+</dwsync>

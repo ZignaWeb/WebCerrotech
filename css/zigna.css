@@ -1,0 +1,109 @@
+/* CSS Document */
+@font-face {
+	font-family: 'Simplifica';
+  	src: url('fonts/simplifica_typeface-webfont.eot'); /* IE9 Compat Modes */
+  	src: url('fonts/simplifica_typeface-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+url('fonts/simplifica_typeface-webfont.woff') format('woff'), /* Modern Browsers */
+url('fonts/simplifica_typeface-webfont.ttf') format('truetype'), /* Safari, Android, iOS */
+url('fonts/simplifica_typeface-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */  
+}
+#enviando{ display:none}
+p, a, h1, h2, h3, h4, h5, h6 {
+	font-family: 'Simplifica', Fallback, sans-serif;
+	font-size:120%;
+}
+.orbit-timer{
+	display:none;
+}
+body{
+	background:url(../img/ios-linen.jpg);
+}
+.row{
+	background:url(../img/010-subtle-light-patterns.jpg);
+}
+
+.top-bar {
+	background-color:none !important;
+/*	background:url(../img/010-subtle-light-patterns.jpg);*/
+	background:url(../img/010-subtle-light-patterns.jpg);
+	height:45px !important;
+}
+
+.top-bar .name h1 a{
+	display:inline;
+}
+.top-bar .name h1{
+	font-size:150%;
+}
+/*accb00 verde*/
+.top-bar .right {
+	background:none !important;
+}
+input[type=submit] {
+	padding:5px 15px; background:#; border:double 1px;
+	cursor:pointer;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+input[type=submit][disabled]{
+	color:#666 !important;
+}
+.panel.callout{
+	border:solid 1px #999;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background:url(../img/010-subtle-light-patterns.jpg);
+}
+#footer{
+	font-size:12px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none; 
+	margin: 0; 
+}
+.steps-img {
+	max-height:350px;
+}
+
+
+
+@media only screen and (max-width: 40.063em) {
+	.zigna-hide-for-small{
+		display:none !important;
+	}
+	.content-wrap img not(.steps-img){
+		height:150px;
+		width:150px;
+	}
+}
+@media only screen and (min-width: 64.063em) {
+	.zigna-hide-for-small{
+		display:inline !important;
+	}
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64.063em) {
+	.content-wrap img not(.steps-img){
+		height:250px;
+		width:250px;
+	}
+}
+/*meta.foundation-mq-small {
+  font-family: "/only screen/";
+  width: 0em; }
+
+meta.foundation-mq-medium {
+  font-family: "/only screen and (min-width:40.063em)/";
+  width: 40.063em; }
+
+meta.foundation-mq-large {
+  font-family: "/only screen and (min-width:64.063em)/";
+  width: 64.063em; }
+
+meta.foundation-mq-xlarge {
+  font-family: "/only screen and (min-width:90.063em)/";
+  width: 90.063em; }
+
+meta.foundation-mq-xxlarge {
+  font-family: "/only screen and (min-width:120.063em)/";
+  width: 120.063em; }*/

@@ -1,0 +1,37 @@
+/* CSS Document */
+body { line-height:normal}
+dl.sub-nav { margin:0; padding-top:10px; }
+#filter-form { margin:0px;}
+#filter-form > * { padding:5px 0 0 5px;}
+hr {}
+.icon16x16 { height:16px; width:16px; background-image:url(../i/jui/ui-icons_222222_256x240.png); display:block;}
+
+ol.rtf {}
+ol.rtf li {}
+ol.rtf li a.rtfBtn { line-height:20px;font-size:12px;}
+ol.rtf li a.rtfBtn.titulo1 { font-size:18px; font-weight:bold !important;}
+ol.rtf li a.rtfBtn.titulo2 { font-size:14px; font-weight:bold !important;}
+ol.rtf li a.rtfBtn.italic { font-style:italic}
+ol.rtf li a.rtfBtn.bold { font-weight:bold  !important}
+
+.botonlista { margin:2px;}
+.list_thumb { max-height:80px; max-width:120px;}
+
+#data-reveal-addlink {position:fixed; top:20%; right:20%; left:20%; background:#FFF; box-shadow:#000 0 0 20px; padding:40px; z-index:1000; display:none;}
+#data-reveal-addlink a.close.equis { position:absolute; top:10px; right:10px; font-size:20px;}
+
+.galleryAdmin {}
+.galleryAdmin .mediaItem  { padding:10px;}
+.galleryAdmin .mediaItem:hover { box-shadow: 0 0 5px #0099FF}
+.galleryAdmin .mediaItem .imgHold { padding:50%; }
+.galleryAdmin .mediaItem .button-group { display:none; position:absolute; top:10%; right:10%; left:10%; width:80%;}
+.galleryAdmin .mediaItem:hover .button-group { display:block;}
+.galleryAdmin .mediaItem .button-group .button { padding:5px;}
+.galleryAdmin .mediaItem .button-group .button.tiny { width:100%;}
+.galleryAdmin .mediaItem .button-group .button.edit span,
+.galleryAdmin .mediaItem .button-group .button.eliminarelemeto span {
+	display:block; width:16px; height:16px;
+	background: url(../i/jui/ui-icons-white.png);
+}
+.galleryAdmin .mediaItem .button-group .button.eliminarelemeto span {background-position:-97px -128px ;}
+.galleryAdmin .mediaItem .button-group .button.edit span {background-position:-176px -113px ;}
