@@ -66,7 +66,7 @@ include("cp/r/funciones.php");
         <img class="steps-img" src="img/uno.png">
         
         <h6 class="panel text-left">
-        Indicá la marca y el modelo de tu equipo
+        Marca y modelo
      		<form>
         	<select id="brand">   
             	<optgroup>
@@ -115,14 +115,15 @@ include("cp/r/funciones.php");
 									
                  ?>
             </select>
-        </form>    
+        </form>  
+        Seleccioná la marca y el modelo de tu equipo.  
         </h6>
       </div>
 
       <div class="large-3 small-6 columns text-center">
         <img class="steps-img" src="img/dos.png">        
         <h6 class="panel text-left">
-        Indicá que operador maneja tus llamadas
+        Operador
          <form>
         	<select id="carrier" disabled>
 				<optgroup>
@@ -172,6 +173,7 @@ include("cp/r/funciones.php");
                 </optgroup>
             </select>
         </form>
+        Indica que operador maneja tus llamadas (Personal, Claro, etc.)
         </h6>
       </div>
 
@@ -182,7 +184,8 @@ include("cp/r/funciones.php");
         Indicá el número IMEI de tu equipo
         <form>        	            	
         	<input id="imei" disabled type="number" name="imei" required/>           
-        </form>  
+        </form> 
+        Para saber tu IMEI marcá <span style="font-size:110%; font-weight:bold; font-family:Arial, Helvetica, sans-serif; color: rgb(120,175,83);">*#06#</span> 
         </h6>
       </div>
 
@@ -195,6 +198,7 @@ include("cp/r/funciones.php");
         <form>        	            	
         	<input id="mail" disabled type="email" name="mail" required/>           
         </form>  
+        Asegurate de usar la misma dirección con la que hagas el pago.
         </h6>
       </div><!-- End Thumbnails -->
     </div>
