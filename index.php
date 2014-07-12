@@ -239,6 +239,9 @@ include("cp/r/funciones.php");
         <h5>Total $<span id="insert"></span></h5>
         <hr>
         <div class="panel radius callout" style="text-align: center">
+         <div id="enviando">
+             <p>Enviando</p>
+           </div>  
           <form  id="mensaje" class="pedido" action="pedido.php" method="post">
         	<select id="payment" disabled name="payment">
             	<option value="placeholder">Seleccioná una opción</option>
@@ -246,6 +249,7 @@ include("cp/r/funciones.php");
             	<option value="MercadoPago">MercadoPago</option>
             	<option value="Paypal">Paypal</option>
             	<option value="Transferencia">Transferencia bancaria</option>
+                          
             </select>
             <input id="brandH" type="hidden" value="" name="brand">
             <input id="modelH" type="hidden" value="" name="model">
@@ -253,12 +257,11 @@ include("cp/r/funciones.php");
             <input id="paisH" type="hidden" value="" name="pais">            
             <input id="imeiH" type="hidden" value="" name="imei"> 
             <input id="mailH" type="hidden" value="" name="mail">
-            <input id="preH" type="hidden" value="" name="precio">                        
+            <input id="preH" type="hidden" value="" name="precio">         
             <input id="submit" disabled type="submit" value="Procesar datos y recibir instrucciones!">
+           
            </form> 
-           <div id="enviando">
-             <span>Enviando</span>
-           </div>
+           
         </div>
       </div><!-- End Content -->
     </div>
@@ -292,68 +295,106 @@ include("cp/r/funciones.php");
 		});
     </script>
 	<script>	
-	var brand, carrier, imei, mail, payment,carrierid=null,telid,marcid;
-	$("#brand").change(function(){
-	if($("#brand").val() != "placeholder"){
-	var selected = $(':selected', this);
+	var brand, carrier, imei, mail, payment,carrierid=null,telid,marcid,f=0,selected;
+	$("#brand").attr("disabled", false);
 	$("#carrier").attr("disabled", false);
-	$("#modelH").val($("#brand").val());
-	$("#brandH").val(selected.closest('optgroup').attr('label'));
-	telid=selected.attr("class");
-	marcid=selected.attr("id");
-	if(carrierid!=null){
-	inserthtml();
-	}
-	} else{
-	$("#carrier").attr("disabled", true);
-	}
-	});
-	$("#carrier").change(function(){
-	var selected = $(':selected', this);
-	if($("#carrier").val() != "placeholder"){
+	$("#mail").attr("disabled", false);
 	$("#imei").attr("disabled", false);
-	$("#carrierH").val($("#carrier").val());
-	$("#paisH").val(selected.closest('optgroup').attr('label'));
-	carrierid=selected.attr("class");
-	inserthtml();
-	} else{
-	$("#imei").attr("disabled", true);
-	}
+	$("#payment").attr("disabled", false);
+	$("#submit").attr("disabled", false);
+	
+	
+	
+	$("#brand").change(function(){
+			if(f==0){f++;}
+				check();
 	});
+	
+	$("#carrier").change(function(){
+		if(f==1){f++;}
+		check();
+	});
+	
 	$("#imei").change(function(){
 	var len=$("#imei").val().length;
 	if(len == 15){
-	$("#mail").attr("disabled", false);
 	$("#imeiH").val($("#imei").val());
+			if(f==2){f++;}
+			check();
 	} else{
-	$("#mail").attr("disabled", true);
-	alert("Ingrese un IMEI valido");
+		alert("Ingrese un IMEI valido");
 	}
 	});
+	
+	
 	$("#mail").change(function(){
 	expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	var email=document.querySelector('[name="mail"]').value;
-	
 	if($("#mail").val() != "placeholder" ){
 	if(!expr.test(email)){
 	alert("Error: La dirección de correo " + email + " es incorrecta.");
 	}else{
-	$("#payment").attr("disabled", false);
 	$("#mailH").val($("#mail").val());
+	if(f==3){f++;}
+	check();
 	}
 	}else{
-	$("#payment").attr("disabled", true);
 	}
 	});
+	
 	$("#payment").change(function(){
 	if($("#payment").val() != "placeholder"){
-	$("#submit").attr("disabled", false);
+		if(f==4){f++;}
+		check();
 	$("#paymentH").val($("#payment").val());	
 	} else{
-	$("#submit").attr("disabled", true);
+	}
+	});
+	function check(){
+		switch(f){
+			case 0:{
+				alert("0");
+				}
+				break;
+			case 1:{
+						if($("#brand").val() != "placeholder"){
+							selected = $(':selected', this.this);
+							$("#modelH").val($("#brand").val());
+							$("#brandH").val(selected.closest('optgroup').attr('label'));
+							telid=selected.attr("class");
+							marcid=selected.attr("id");
+							if(carrierid!=null){
+								inserthtml();
+							}
+						}
+				}
+				break;
+			case 2:{
+						selected = $(':selected', this.this);
+						if($("#carrier").val() != "placeholder"){
+							$("#carrierH").val($("#carrier").val());
+							$("#paisH").val(selected.closest('optgroup').attr('label'));
+							carrierid=selected.attr("class");
+							inserthtml();
+						}			
+					}	
+				break;
+			case 3:{
+				alert("3");
+				}
+				break;
+			case 4:{
+				alert("4");
+				}
+				break;
+			case 5:{
+				alert("5");
+				}
+				break;
+		}	
+		
 	}
 	
-	});
 	function inserthtml(){
 	$.get("getprecio.php", { carrier:carrierid, tel:telid ,marca:marcid},function(data){
 	$("#insert").html(data);
@@ -363,19 +404,22 @@ include("cp/r/funciones.php");
 	
 	$('.pedido').submit(function(event) {
 	  event.preventDefault();
+		$("#enviando").fadeIn();
 	  var url = $(this).attr('action');
 	  var datos = $(this).serialize();
  
 	  $.post(url, datos, function(resultado) {
+			$("#enviando").fadeOut();
 			$('#mensaje').html(resultado);
 			$( "#dialog" ).dialog({
 	autoOpen: true,
+	closeOnEscape:false,
 	width: 400,
 	buttons: [
 		{
-			text: "Ok",
+			text: "Liberar Otro",
 			click: function() {
-				$( this ).dialog( "close" );
+				 document.location.href = "http://cerrotech.com";
 			}
 		},
 		{

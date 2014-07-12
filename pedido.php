@@ -1,6 +1,5 @@
 <?
 include("cp/r/sql.php");
-include("mail.php");
   
 ?>
 <link rel="stylesheet" href="css/email.css" />
@@ -76,12 +75,8 @@ $ahora = date($fDateTime);
 	*/	
 		
 			$sendTo = "ben.picone@gmail.com";
-			
-
-				
+			include("mail.php");
 			require_once('./r/PHPMailer/class.phpmailer.php');
-			
-
 
 			$email= new PHPMailer;
 
@@ -100,8 +95,8 @@ $ahora = date($fDateTime);
 			
 			if ($email->Send()){
 				echo "
-							<div id='dialog' title='Basic dialog'>
-  							<p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+							<div id='dialog' title='Felicitaciones'>
+  							<p>Completaste la carga de datos. Revisa tu correo para seguir con la liberacion.</p>
 							</div>
 							 <form  id='mensaje' class='pedido' action='pedido.php' method='post'>
         				<select id='payment' disabled name='payment'>
@@ -116,6 +111,38 @@ $ahora = date($fDateTime);
 			}
 			
 
+/*
 
+require("class.phpmailer.php");
+
+$mail = new PHPMailer();
+
+$mail->SMTPDebug = 0;
+$mail->IsSMTP();  // telling the class to use SMTP
+$mail->SMTPAuth = true;
+
+$mail->Port       = 25;                  // set the SMTP port
+$mail->Host     = "<<smtp server>>"; // SMTP server
+$mail->Username = "<<username>>";
+$mail->Password = "<<password>>";
+
+$mail->From     = "<<email address>>";
+$mail->FromName = "<<name>>";
+$mail->AddAddress("<<email address>>");
+
+$mail->Subject  = "Acknowledgement Form";
+$mail->AltBody = 'To view the message, please use an HTML compatible email viewer!'; // optional - MsgHTML will create an alternate automatically
+$mail->IsHTML(true);
+
+$mail->Body = file_get_contents('<<acknowledgement form page>>');
+$mail->AddAttachment('printer.css'); // attach style sheet
+
+if(!$mail->Send()) {
+echo 'Message was not sent.';
+echo 'Mailer error: ' . $mail->ErrorInfo;
+} else {
+echo 'Message has been sent.';
+}
+*/
 								
 ?>
