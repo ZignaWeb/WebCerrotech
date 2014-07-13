@@ -2,7 +2,6 @@
 include("cp/r/sql.php");
   
 ?>
-<link rel="stylesheet" href="css/email.css" />
 
 <?	
 /********************************************************************

@@ -295,105 +295,78 @@ include("cp/r/funciones.php");
 		});
     </script>
 	<script>	
-	var brand, carrier, imei, mail, payment,carrierid=null,telid,marcid,f=0,selected;
-	$("#brand").attr("disabled", false);
-	$("#carrier").attr("disabled", false);
-	$("#mail").attr("disabled", false);
-	$("#imei").attr("disabled", false);
-	$("#payment").attr("disabled", false);
-	$("#submit").attr("disabled", false);
-	
-	
+	var brand, carrier, imei, mail, payment,carrierid=null,telid,marcid,selected,b=0,c=0,i=0,m=0,p=0;
 	
 	$("#brand").change(function(){
-			if(f==0){f++;}
-				check();
+			if($("#brand").val() != "placeholder"){
+				b=0;
+				selected = $(':selected', this);
+				$("#modelH").val($("#brand").val());
+				$("#brandH").val(selected.closest('optgroup').attr('label'));
+				telid=selected.attr("class");
+				marcid=selected.attr("id");
+				if(carrierid!=null){
+					inserthtml();
+				 }
+				$("#carrier").attr("disabled", false);
+			}else{
+				b++;
+			}
 	});
 	
 	$("#carrier").change(function(){
-		if(f==1){f++;}
-		check();
+		if($("#carrier").val() != "placeholder"){
+			 c=0;
+			selected = $(':selected', this);
+			$("#carrierH").val($("#carrier").val());
+			$("#paisH").val(selected.closest('optgroup').attr('label'));
+			carrierid=selected.attr("class");
+			inserthtml();
+			$("#imei").attr("disabled", false);
+		}else{
+				c++;
+			}
 	});
 	
 	$("#imei").change(function(){
 	var len=$("#imei").val().length;
 	if(len == 15){
-	$("#imeiH").val($("#imei").val());
-			if(f==2){f++;}
-			check();
+			i=0;
+			$("#imeiH").val($("#imei").val());
+			$("#mail").attr("disabled", false);
 	} else{
+		i++;
 		alert("Ingrese un IMEI valido");
 	}
 	});
 	
 	
 	$("#mail").change(function(){
-	expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-	var email=document.querySelector('[name="mail"]').value;
-	if($("#mail").val() != "placeholder" ){
-	if(!expr.test(email)){
-	alert("Error: La dirección de correo " + email + " es incorrecta.");
-	}else{
-	$("#mailH").val($("#mail").val());
-	if(f==3){f++;}
-	check();
-	}
-	}else{
-	}
+		expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		var email=document.querySelector('[name="mail"]').value;
+		if($("#mail").val() != "placeholder" ){
+			if(!expr.test(email)){
+				 m++;
+			alert("Error: La dirección de correo " + email + " es incorrecta.");
+			}else{
+				m=0;
+				$("#mailH").val($("#mail").val());
+				 $("#payment").attr("disabled", false);
+				}	
+			}
 	});
 	
 	$("#payment").change(function(){
-	if($("#payment").val() != "placeholder"){
-		if(f==4){f++;}
-		check();
-	$("#paymentH").val($("#payment").val());	
-	} else{
-	}
+		if($("#payment").val() != "placeholder"){
+			p=0;
+			$("#paymentH").val($("#payment").val());
+			$("#submit").attr("disabled", false);
+		}else{
+				p++;
+			}
 	});
-	function check(){
-		switch(f){
-			case 0:{
-				alert("0");
-				}
-				break;
-			case 1:{
-						if($("#brand").val() != "placeholder"){
-							selected = $(':selected', this.this);
-							$("#modelH").val($("#brand").val());
-							$("#brandH").val(selected.closest('optgroup').attr('label'));
-							telid=selected.attr("class");
-							marcid=selected.attr("id");
-							if(carrierid!=null){
-								inserthtml();
-							}
-						}
-				}
-				break;
-			case 2:{
-						selected = $(':selected', this.this);
-						if($("#carrier").val() != "placeholder"){
-							$("#carrierH").val($("#carrier").val());
-							$("#paisH").val(selected.closest('optgroup').attr('label'));
-							carrierid=selected.attr("class");
-							inserthtml();
-						}			
-					}	
-				break;
-			case 3:{
-				alert("3");
-				}
-				break;
-			case 4:{
-				alert("4");
-				}
-				break;
-			case 5:{
-				alert("5");
-				}
-				break;
-		}	
-		
-	}
+	
+	
 	
 	function inserthtml(){
 	$.get("getprecio.php", { carrier:carrierid, tel:telid ,marca:marcid},function(data){
@@ -403,35 +376,46 @@ include("cp/r/funciones.php");
 	}
 	
 	$('.pedido').submit(function(event) {
-	  event.preventDefault();
-		$("#enviando").fadeIn();
-	  var url = $(this).attr('action');
-	  var datos = $(this).serialize();
- 
-	  $.post(url, datos, function(resultado) {
-			$("#enviando").fadeOut();
-			$('#mensaje').html(resultado);
-			$( "#dialog" ).dialog({
-	autoOpen: true,
-	closeOnEscape:false,
-	width: 400,
-	buttons: [
-		{
-			text: "Liberar Otro",
-			click: function() {
-				 document.location.href = "http://cerrotech.com";
+		event.preventDefault();
+		if(b==0 && c==0 && i==0 && m==0 && p==0){
+			$("#enviando").fadeIn();
+			var url = $(this).attr('action');
+			var datos = $(this).serialize();
+	 
+			$.post(url, datos, function(resultado) {
+				$("#enviando").fadeOut();
+				$('#mensaje').html(resultado);
+				$( "#dialog" ).dialog({
+						autoOpen: true,
+						 show: {
+        					effect: "blind",
+        					duration: 1000
+      						},
+    			  hide: {
+									effect: "explode",
+									duration: 1000
+								},
+						closeOnEscape:false,
+						width: 400,
+						buttons: [
+							{
+								text: "Liberar Otro",
+								click: function() {
+									 document.location.href = "http://cerrotech.com";
+								}
+							},
+							{
+								text: "Cerrar",
+								click: function() {
+									$( this ).dialog( "close" );
+								}
+							}
+						]
+					});
+			});
+		}else{
+			alert("TODOS LOS CAMPOS SON OBLIGATORIOS")
 			}
-		},
-		{
-			text: "Cancel",
-			click: function() {
-				$( this ).dialog( "close" );
-			}
-		}
-	]
-});
-	  });
-
 	});
 </script>
 <script src="js/jquery.js"></script>
