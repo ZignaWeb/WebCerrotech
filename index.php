@@ -65,9 +65,9 @@ include("cp/r/funciones.php");
         
         <h6 class="panel text-left">
         Marca y modelo
-        <div class="selectedBrand">
+        <div class="styled">
      		<form>
-        	<select id="brand">  
+        	<select id="brand">   
             	<optgroup>
                 	<option value="placeholder">Seleccioná una opción</option>                
                 </optgroup>   
@@ -113,6 +113,7 @@ include("cp/r/funciones.php");
 									
 									
                  ?>
+                 
             </select>
         </form>  
         </div>
@@ -124,7 +125,6 @@ include("cp/r/funciones.php");
         <img class="steps-img" src="img/dos.png">        
         <h6 class="panel text-left">
         Operador
-         <div class="selectedCarrier">
          <form>
         	<select id="carrier" disabled>
 				<optgroup>
@@ -174,7 +174,6 @@ include("cp/r/funciones.php");
                 </optgroup>
             </select>
         </form>
-        </div>
         Indica que operador maneja tus llamadas (Personal, Claro, etc.)
         </h6>
       </div>
@@ -220,7 +219,6 @@ include("cp/r/funciones.php");
          <div id="enviando">
              <p>Enviando</p>
          </div>  
-         	 <div class="selectedPayment">
           <form  id="mensaje" class="pedido" action="pedido.php" method="post">
         	<select id="payment" disabled name="payment">
             	<option value="placeholder">Seleccioná una opción</option>
@@ -240,6 +238,7 @@ include("cp/r/funciones.php");
             <input id="submit" disabled type="submit" value="Procesar datos y recibir instrucciones!">
            
            </form> 
+           
         </div>
         <!-- content-->
         <div class="small-12 columns">
@@ -309,10 +308,10 @@ include("cp/r/funciones.php");
 					inserthtml();
 				 }
 				$("#carrier").attr("disabled", false);
-				$(".selectedBrand").addClass(" selected ");
+				$("#brand").addClass("selected");
 			}else{
 				b++;
-				$(".selectedBrand").addClass(" selected ");
+				$("#brand").addClass("selected");
 				
 			}
 	});
@@ -326,10 +325,10 @@ include("cp/r/funciones.php");
 			carrierid=selected.attr("class");
 			inserthtml();
 			$("#imei").attr("disabled", false);
-			$(".selectedCarrier").addClass(" selected ");
+			$("#carrier").addClass("selected");
 		}else{
 				c++;
-				$(".selectedCarrier").removeClass(" selected ");
+				$("#carrier").removeClass("selected");
 			}
 	});
 	
@@ -370,10 +369,10 @@ include("cp/r/funciones.php");
 			p=0;
 			$("#paymentH").val($("#payment").val());
 			$("#submit").attr("disabled", false);
-			$(".selectedPayment").addClass("selected");
+			$("#payment").addClass("selected");
 		}else{
 				p++;
-				$(".selectedPayment").removeClass(" selected ");
+				$("#payment").removeClass("selected");
 			}
 	});
 	
