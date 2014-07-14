@@ -274,7 +274,7 @@ include("cp/r/funciones.php");
 
     <div id="footer" class="row">
       <div class="large-12 small-12 columns">
-        <p>© Copyright. Donec in tortor tellus. Phasellus sit amet est id libero fermentum pulvinar. Integer tempus tempor odio, lobortis pellentesque enim feugiat eget. Donec in tortor tellus. Phasellus sit amet est id libero fermentum pulvinar. Integer tempus tempor odio, lobortis pellentesque enim feugiat eget. Donec in tortor tellus. Phasellus sit amet est id libero fermentum pulvinar. Integer tempus tempor odio, lobortis pellentesque enim feugiat eget. Donec in tortor tellus. Phasellus sit amet est id libero fermentum pulvinar. Integer tempus tempor odio, lobortis pellentesque enim feugiat eget. Donec in tortor tellus. Phasellus sit amet est id libero fermentum pulvinar. Integer tempus tempor odio, lobortis pellentesque enim feugiat eget.</p>
+        <p>© Copyright. Cerrotech proporciona y garantiza el codigo de desbloqueo para tu celular. Si tu celular esta dado de baja,o en banda negativa,o con los intentos agotados para ingresar el codigo, no se reembolsara el dinero en estos casos. Si de todas maneras usted quiere el codigo, sera bajo su responsabilidad. Por estas razones ,asegurate que tu equipo cumpla con estas condiciones, para que de esta manera puedas liberar tu celular exitosamente ! Cualquier ayuda que necesites utiliza nuestros medios de contacto, y en breve te responderemos!  CERROTECH. CORDOBA. ARGENTINA 2014</p>
       </div>
 
      
