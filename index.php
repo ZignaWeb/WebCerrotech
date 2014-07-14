@@ -26,7 +26,7 @@ include("cp/r/funciones.php");
         <!-- Title Area -->
 
         <li class="name">
-          <h1><a href="index.php"><img src="img/logo.png"></a><span class="zigna-hide-for-small">Liberá tu celular con Cerrotech!</span></h1>
+          <h1><a href="index.php"><img src="img/logo.png"></a><span class="zigna-hide-for-small">Liberá tu celular en 4 simples pasos!</span></h1>
         </li>
       </ul>
     </nav><!-- End Navigation -->
@@ -52,10 +52,8 @@ include("cp/r/funciones.php");
       <img src="img/slider1.jpg"></div>
     </div><!--  -->
 </div>
-<br>
-<div class="row">
+<div class="row" style="padding-top:15px;">
 <div class="small-12">
-<h1 style="font-size:24px; padding:15px;">Seguí estos 4 simples pasos para liberar tu celular!</h1>
 </div>
   <div class="large-12 columns">
     <div class="row content-wrap">
@@ -207,41 +205,17 @@ include("cp/r/funciones.php");
 
 <div class="row">
   <div class="large-12 columns">
-    <div class="row">
-      <!-- Content -->
-
-      <div class="large-8 small-12 columns">
-        <div class="panel radius">
-          <div class="row">
-            <div class="large-6 small-6 columns">
-              <h4>Sobre nosotros</h4>
-              <hr>
-<!--ahi al lado de formas de pago, donde dice listo!, la idea es poner un texto de quien es cerrotech donde estamos remarcando argentina, numero de wahts y mail para soporte, y remarcar lo facil que es liberar y listo.-->
-              <h5 class="subheader">
-			  Somos un equipo de profesionales dedicados al servicio técnico y liberacion de smartphones, de la manera mas segura del mercado, sin poner en riesgo tu equipo. Ubicados en Córdoba, Argentina, damos soporte a todo el pais, siendo desde una empresa, hasta clientes particulares, confiando en nosotros por nuestro trabajo profesional y transparente, algo muy importante y valorado en Argentina. 
-              </h5>
-            </div>
-
-            <div class="large-6 small-6 columns">
-              <p>Tenes alguna consulta? Mandanos un email o escribinos por whatsapp! Uno de nuestros tecnicos te respondera a la brevedad!<br>
-    Whatsapp:5555555<br> 
-	contacto@cerrotech.com<br>
-	facebook.com/cerrotech<br>
-	gplus<br>
-	twitter</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="small-12 medium-6 medium-pull-3 large-4 large-pull-0 columns">
+    <div class="row">      
+	<!-- Pago -->
+      <div class="small-12 columns">
+        
+        <hr>
+        <div class="small-12 large-6 large-push-3 panel radius callout" style="text-align: center">
         <h4>Formas de pago</h4>
         <h5>Total $<span id="insert"></span></h5>
-        <hr>
-        <div class="panel radius callout" style="text-align: center">
          <div id="enviando">
              <p>Enviando</p>
-           </div>  
+         </div>  
           <form  id="mensaje" class="pedido" action="pedido.php" method="post">
         	<select id="payment" disabled name="payment">
             	<option value="placeholder">Seleccioná una opción</option>
@@ -263,6 +237,28 @@ include("cp/r/funciones.php");
            </form> 
            
         </div>
+        <!-- content-->
+        <div class="small-12 columns">
+        <div class="panel radius">
+          <div class="row">
+            <div class="small-12 columns">
+              <h4>Sobre nosotros</h4>
+              <hr>
+<!--ahi al lado de formas de pago, donde dice listo!, la idea es poner un texto de quien es cerrotech donde estamos remarcando argentina, numero de wahts y mail para soporte, y remarcar lo facil que es liberar y listo.-->
+              <h5 class="subheader">
+			  Somos un equipo de profesionales dedicados al servicio técnico y liberacion de smartphones, de la manera mas segura del mercado, sin poner en riesgo tu equipo. Ubicados en Córdoba, Argentina, damos soporte a todo el pais, ya sea a empresas, hasta clientes particulares, que confian en nosotros por nuestro trabajo profesional y transparente, algo muy importante y valorado en Argentina. 
+              </h5>
+            </div>
+
+            <div class="small-12 columns">
+              <p>Tenes alguna consulta? Mandanos un email o escribinos por whatsapp! Uno de nuestros técnicos te responderá a la brevedad!<br>
+    Whatsapp:5555555<br> 
+	contacto@cerrotech.com<br>
+	facebook.com/cerrotech</p>
+            </div>
+          </div>
+        </div>
+      </div>
       </div><!-- End Content -->
     </div>
   </div>
@@ -274,7 +270,7 @@ include("cp/r/funciones.php");
 
     <div id="footer" class="row">
       <div class="large-12 small-12 columns">
-        <p>© Copyright. Cerrotech proporciona y garantiza el codigo de desbloqueo para tu celular. Si tu celular esta dado de baja,o en banda negativa,o con los intentos agotados para ingresar el codigo, no se reembolsara el dinero en estos casos. Si de todas maneras usted quiere el codigo, sera bajo su responsabilidad. Por estas razones ,asegurate que tu equipo cumpla con estas condiciones, para que de esta manera puedas liberar tu celular exitosamente ! Cualquier ayuda que necesites utiliza nuestros medios de contacto, y en breve te responderemos!  CERROTECH. CORDOBA. ARGENTINA 2014</p>
+        <p>© Copyright 2014 CERROTECH, CÓRDOBA, ARGENTINA. Cerrotech proporciona y garantiza el código de desbloqueo para tu celular. Si tu celular esta dado de baja, o en banda negativa, o con los intentos agotados para ingresar el código, no se reembolsará el dinero en estos casos. Si de todas maneras usted quiere el código, sera bajo su responsabilidad. Por estas razones, asegurate que tu equipo cumpla con estas condiciones, para que de esta manera puedas liberar tu celular exitosamente! Cualquier ayuda que necesites utiliza nuestros medios de contacto, y en breve te responderemos!</p>
       </div>
 
      
@@ -288,10 +284,10 @@ include("cp/r/funciones.php");
 		'orbit', {
 			bullets:false,
 			navigation_arrows:false,
-			animation:'slide',
+			animation:'fade',
 			pause_on_hover:false,
 			slide_number: false,
-			timer_speed: 2000			
+			timer_speed: 3000			
 		});
     </script>
 	<script>	
