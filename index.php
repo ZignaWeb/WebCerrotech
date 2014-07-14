@@ -65,9 +65,9 @@ include("cp/r/funciones.php");
         
         <h6 class="panel text-left">
         Marca y modelo
-        <div class="styled">
+        <div class="selectedBrand">
      		<form>
-        	<select id="brand">   
+        	<select id="brand">  
             	<optgroup>
                 	<option value="placeholder">Seleccioná una opción</option>                
                 </optgroup>   
@@ -113,7 +113,6 @@ include("cp/r/funciones.php");
 									
 									
                  ?>
-                 
             </select>
         </form>  
         </div>
@@ -125,6 +124,7 @@ include("cp/r/funciones.php");
         <img class="steps-img" src="img/dos.png">        
         <h6 class="panel text-left">
         Operador
+         <div class="selectedCarrier">
          <form>
         	<select id="carrier" disabled>
 				<optgroup>
@@ -174,6 +174,7 @@ include("cp/r/funciones.php");
                 </optgroup>
             </select>
         </form>
+        </div>
         Indica que operador maneja tus llamadas (Personal, Claro, etc.)
         </h6>
       </div>
@@ -219,6 +220,7 @@ include("cp/r/funciones.php");
          <div id="enviando">
              <p>Enviando</p>
          </div>  
+         	 <div class="selectedPayment">
           <form  id="mensaje" class="pedido" action="pedido.php" method="post">
         	<select id="payment" disabled name="payment">
             	<option value="placeholder">Seleccioná una opción</option>
@@ -238,7 +240,6 @@ include("cp/r/funciones.php");
             <input id="submit" disabled type="submit" value="Procesar datos y recibir instrucciones!">
            
            </form> 
-           
         </div>
         <!-- content-->
         <div class="small-12 columns">
@@ -308,10 +309,10 @@ include("cp/r/funciones.php");
 					inserthtml();
 				 }
 				$("#carrier").attr("disabled", false);
-				$("#brand").addClass("selected");
+				$(".selectedBrand").addClass(" selected ");
 			}else{
 				b++;
-				$("#brand").addClass("selected");
+				$(".selectedBrand").addClass(" selected ");
 				
 			}
 	});
@@ -325,10 +326,10 @@ include("cp/r/funciones.php");
 			carrierid=selected.attr("class");
 			inserthtml();
 			$("#imei").attr("disabled", false);
-			$("#carrier").addClass("selected");
+			$(".selectedCarrier").addClass(" selected ");
 		}else{
 				c++;
-				$("#carrier").removeClass("selected");
+				$(".selectedCarrier").removeClass(" selected ");
 			}
 	});
 	
@@ -369,10 +370,10 @@ include("cp/r/funciones.php");
 			p=0;
 			$("#paymentH").val($("#payment").val());
 			$("#submit").attr("disabled", false);
-			$("#payment").addClass("selected");
+			$(".selectedPayment").addClass("selected");
 		}else{
 				p++;
-				$("#payment").removeClass("selected");
+				$(".selectedPayment").removeClass(" selected ");
 			}
 	});
 	
