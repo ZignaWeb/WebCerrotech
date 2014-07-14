@@ -65,6 +65,7 @@ include("cp/r/funciones.php");
         
         <h6 class="panel text-left">
         Marca y modelo
+        <div class="selectedBrand">
      		<form>
         	<select id="brand">  
             	<optgroup>
@@ -114,6 +115,7 @@ include("cp/r/funciones.php");
                  ?>
             </select>
         </form>  
+        </div>
         Seleccioná la marca y el modelo de tu equipo.  
         </h6>
       </div>
@@ -122,6 +124,7 @@ include("cp/r/funciones.php");
         <img class="steps-img" src="img/dos.png">        
         <h6 class="panel text-left">
         Operador
+         <div class="selectedCarrier">
          <form>
         	<select id="carrier" disabled>
 				<optgroup>
@@ -171,6 +174,7 @@ include("cp/r/funciones.php");
                 </optgroup>
             </select>
         </form>
+        </div>
         Indica que operador maneja tus llamadas (Personal, Claro, etc.)
         </h6>
       </div>
@@ -216,6 +220,7 @@ include("cp/r/funciones.php");
          <div id="enviando">
              <p>Enviando</p>
          </div>  
+         	 <div class="selectedPayment">
           <form  id="mensaje" class="pedido" action="pedido.php" method="post">
         	<select id="payment" disabled name="payment">
             	<option value="placeholder">Seleccioná una opción</option>
@@ -235,6 +240,7 @@ include("cp/r/funciones.php");
             <input id="submit" disabled type="submit" value="Procesar datos y recibir instrucciones!">
            
            </form> 
+        </div>
         <!-- content-->
         <div class="small-12 columns">
         <div class="panel radius">
