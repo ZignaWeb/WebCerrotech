@@ -65,8 +65,12 @@ include("cp/r/funciones.php");
         
         <h6 class="panel text-left">
         Marca y modelo
+<<<<<<< HEAD
+=======
+        <div class="styled">
+>>>>>>> parent of 48d3fb1... same
      		<form>
-        	<select id="brand">  
+        	<select id="brand">   
             	<optgroup>
                 	<option value="placeholder">Seleccioná una opción</option>                
                 </optgroup>   
@@ -112,6 +116,7 @@ include("cp/r/funciones.php");
 									
 									
                  ?>
+                 
             </select>
         </form>  
         Seleccioná la marca y el modelo de tu equipo.  
@@ -235,6 +240,11 @@ include("cp/r/funciones.php");
             <input id="submit" disabled type="submit" value="Procesar datos y recibir instrucciones!">
            
            </form> 
+<<<<<<< HEAD
+=======
+           
+        </div>
+>>>>>>> parent of 48d3fb1... same
         <!-- content-->
         <div class="small-12 columns">
         <div class="panel radius">
@@ -303,10 +313,10 @@ include("cp/r/funciones.php");
 					inserthtml();
 				 }
 				$("#carrier").attr("disabled", false);
-				$(".selectedBrand").addClass(" selected ");
+				$("#brand").addClass("selected");
 			}else{
 				b++;
-				$(".selectedBrand").addClass(" selected ");
+				$("#brand").addClass("selected");
 				
 			}
 	});
@@ -320,10 +330,10 @@ include("cp/r/funciones.php");
 			carrierid=selected.attr("class");
 			inserthtml();
 			$("#imei").attr("disabled", false);
-			$(".selectedCarrier").addClass(" selected ");
+			$("#carrier").addClass("selected");
 		}else{
 				c++;
-				$(".selectedCarrier").removeClass(" selected ");
+				$("#carrier").removeClass("selected");
 			}
 	});
 	
@@ -364,10 +374,10 @@ include("cp/r/funciones.php");
 			p=0;
 			$("#paymentH").val($("#payment").val());
 			$("#submit").attr("disabled", false);
-			$(".selectedPayment").addClass("selected");
+			$("#payment").addClass("selected");
 		}else{
 				p++;
-				$(".selectedPayment").removeClass(" selected ");
+				$("#payment").removeClass("selected");
 			}
 	});
 	
