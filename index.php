@@ -65,6 +65,7 @@ include("cp/r/funciones.php");
         
         <h6 class="panel text-left">
         Marca y modelo
+        <div class="styled">
      		<form>
         	<select id="brand">   
             	<optgroup>
@@ -112,8 +113,10 @@ include("cp/r/funciones.php");
 									
 									
                  ?>
+                 
             </select>
         </form>  
+        </div>
         Seleccioná la marca y el modelo de tu equipo.  
         </h6>
       </div>
@@ -305,8 +308,11 @@ include("cp/r/funciones.php");
 					inserthtml();
 				 }
 				$("#carrier").attr("disabled", false);
+				$("#brand").addClass("selected");
 			}else{
 				b++;
+				$("#brand").addClass("selected");
+				
 			}
 	});
 	
@@ -319,8 +325,10 @@ include("cp/r/funciones.php");
 			carrierid=selected.attr("class");
 			inserthtml();
 			$("#imei").attr("disabled", false);
+			$("#carrier").addClass("selected");
 		}else{
 				c++;
+				$("#carrier").removeClass("selected");
 			}
 	});
 	
@@ -330,8 +338,10 @@ include("cp/r/funciones.php");
 			i=0;
 			$("#imeiH").val($("#imei").val());
 			$("#mail").attr("disabled", false);
+			$("#imei").addClass("selected");
 	} else{
 		i++;
+		$("#imei").removeClass("selected");
 		alert("Ingrese un IMEI valido");
 	}
 	});
@@ -343,11 +353,13 @@ include("cp/r/funciones.php");
 		if($("#mail").val() != "placeholder" ){
 			if(!expr.test(email)){
 				 m++;
+				 $("#mail").removeClass("selected");
 			alert("Error: La dirección de correo " + email + " es incorrecta.");
 			}else{
 				m=0;
 				$("#mailH").val($("#mail").val());
 				 $("#payment").attr("disabled", false);
+				 $("#mail").addClass("selected");
 				}	
 			}
 	});
@@ -357,8 +369,10 @@ include("cp/r/funciones.php");
 			p=0;
 			$("#paymentH").val($("#payment").val());
 			$("#submit").attr("disabled", false);
+			$("#payment").addClass("selected");
 		}else{
 				p++;
+				$("#payment").removeClass("selected");
 			}
 	});
 	
@@ -395,15 +409,9 @@ include("cp/r/funciones.php");
 						width: 400,
 						buttons: [
 							{
-								text: "Liberar Otro",
-								click: function() {
-									 document.location.href = "http://cerrotech.com";
-								}
-							},
-							{
 								text: "Cerrar",
 								click: function() {
-									$( this ).dialog( "close" );
+									document.location.href = "http://cerrotech.com";
 								}
 							}
 						]
@@ -412,6 +420,10 @@ include("cp/r/funciones.php");
 		}else{
 			alert("TODOS LOS CAMPOS SON OBLIGATORIOS")
 			}
+	});
+	$(".ui-dialog-titlebar-close").click(function(event){
+					event.preventDefault();
+					document.location.href = "http://cerrotech.com";
 	});
 </script>
 <script src="js/jquery.js"></script>

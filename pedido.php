@@ -95,7 +95,7 @@ $ahora = date($fDateTime);
 			if ($email->Send()){
 				echo "
 							<div id='dialog' title='Felicitaciones'>
-  							<p>Completaste la carga de datos. Revisa tu correo para seguir con la liberacion.</p>
+  							<p>Completaste la carga de datos. Revisa tu correo para seguir con la liberacion (Si no te llega revisa la carpeta de spam)</p>
 							</div>
 							 <form  id='mensaje' class='pedido' action='pedido.php' method='post'>
         				<select id='payment' disabled name='payment'>
