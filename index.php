@@ -65,12 +65,8 @@ include("cp/r/funciones.php");
         
         <h6 class="panel text-left">
         Marca y modelo
-<<<<<<< HEAD
-=======
-        <div class="styled">
->>>>>>> parent of 48d3fb1... same
      		<form>
-        	<select id="brand">   
+        	<select id="brand">  
             	<optgroup>
                 	<option value="placeholder">Seleccioná una opción</option>                
                 </optgroup>   
@@ -116,7 +112,6 @@ include("cp/r/funciones.php");
 									
 									
                  ?>
-                 
             </select>
         </form>  
         Seleccioná la marca y el modelo de tu equipo.  
@@ -240,11 +235,6 @@ include("cp/r/funciones.php");
             <input id="submit" disabled type="submit" value="Procesar datos y recibir instrucciones!">
            
            </form> 
-<<<<<<< HEAD
-=======
-           
-        </div>
->>>>>>> parent of 48d3fb1... same
         <!-- content-->
         <div class="small-12 columns">
         <div class="panel radius">
@@ -313,10 +303,10 @@ include("cp/r/funciones.php");
 					inserthtml();
 				 }
 				$("#carrier").attr("disabled", false);
-				$("#brand").addClass("selected");
+				$(".selectedBrand").addClass(" selected ");
 			}else{
 				b++;
-				$("#brand").addClass("selected");
+				$(".selectedBrand").addClass(" selected ");
 				
 			}
 	});
@@ -330,10 +320,10 @@ include("cp/r/funciones.php");
 			carrierid=selected.attr("class");
 			inserthtml();
 			$("#imei").attr("disabled", false);
-			$("#carrier").addClass("selected");
+			$(".selectedCarrier").addClass(" selected ");
 		}else{
 				c++;
-				$("#carrier").removeClass("selected");
+				$(".selectedCarrier").removeClass(" selected ");
 			}
 	});
 	
@@ -374,10 +364,10 @@ include("cp/r/funciones.php");
 			p=0;
 			$("#paymentH").val($("#payment").val());
 			$("#submit").attr("disabled", false);
-			$("#payment").addClass("selected");
+			$(".selectedPayment").addClass("selected");
 		}else{
 				p++;
-				$("#payment").removeClass("selected");
+				$(".selectedPayment").removeClass(" selected ");
 			}
 	});
 	
