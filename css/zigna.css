@@ -44,6 +44,10 @@ input[type=submit] {
 	cursor:pointer;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
+	background:#78af53 ;
+}
+input[type=submit]:hover {
+	background:#67b021;
 }
 input[type=submit][disabled]{
 	color:#666 !important;
@@ -78,6 +82,12 @@ input[type=number]::-webkit-outer-spin-button {
 	border-top: 5px #333333 solid;
 	border-bottom: 5px #333333 solid;
 }
+#brand,
+#carrier,
+#payment{
+	background:transparent;
+	margin:0;
+	}
 
 
 

@@ -65,7 +65,7 @@ include("cp/r/funciones.php");
         
         <h6 class="panel text-left">
         Marca y modelo
-        <div class="styled">
+        <div class="styledBrand">
      		<form>
         	<select id="brand">   
             	<optgroup>
@@ -125,6 +125,7 @@ include("cp/r/funciones.php");
         <img class="steps-img" src="img/dos.png">        
         <h6 class="panel text-left">
         Operador
+         <div class="styledCarrier">
          <form>
         	<select id="carrier" disabled>
 				<optgroup>
@@ -174,6 +175,7 @@ include("cp/r/funciones.php");
                 </optgroup>
             </select>
         </form>
+        </div>
         Indica que operador maneja tus llamadas (Personal, Claro, etc.)
         </h6>
       </div>
@@ -220,6 +222,7 @@ include("cp/r/funciones.php");
              <p>Enviando</p>
          </div>  
           <form  id="mensaje" class="pedido" action="pedido.php" method="post">
+          <div class="styledPayment">
         	<select id="payment" disabled name="payment">
             	<option value="placeholder">Seleccioná una opción</option>
                 <option value="DineroMail">DineroMail</option>
@@ -228,6 +231,7 @@ include("cp/r/funciones.php");
             	<option value="Transferencia">Transferencia bancaria</option>
                           
             </select>
+            </div>
             <input id="brandH" type="hidden" value="" name="brand">
             <input id="modelH" type="hidden" value="" name="model">
             <input id="carrierH" type="hidden" value="" name="carrier">
@@ -235,8 +239,7 @@ include("cp/r/funciones.php");
             <input id="imeiH" type="hidden" value="" name="imei"> 
             <input id="mailH" type="hidden" value="" name="mail">
             <input id="preH" type="hidden" value="" name="precio">         
-            <input id="submit" disabled type="submit" value="Procesar datos y recibir instrucciones!">
-           
+            <input id="submit" disabled type="submit" value="Procesar datos y recibir instrucciones!" class="ui-button ui-state-default ui-corner-all ui-button-text-only">
            </form> 
            
         </div>
@@ -267,6 +270,7 @@ include("cp/r/funciones.php");
   </div>
 </div><!-- Footer -->
 
+
 <footer class="row">
   <div class="large-12 columns">
     <hr>
@@ -283,6 +287,7 @@ include("cp/r/funciones.php");
 	<script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script type="text/javascript">
+		
 	$(document).foundation(
 		'orbit', {
 			bullets:false,
@@ -295,6 +300,10 @@ include("cp/r/funciones.php");
     </script>
 	<script>	
 	var brand, carrier, imei, mail, payment,carrierid=null,telid,marcid,selected,b=0,c=0,i=0,m=0,p=0;
+	 $(function() {
+    $( "#speed" ).selectmenu();
+  });
+
 	
 	$("#brand").change(function(){
 			if($("#brand").val() != "placeholder"){
@@ -308,10 +317,10 @@ include("cp/r/funciones.php");
 					inserthtml();
 				 }
 				$("#carrier").attr("disabled", false);
-				$("#brand").addClass("selected");
+				$(".styledBrand").addClass("selected");
 			}else{
 				b++;
-				$("#brand").addClass("selected");
+				$(".styledBrand").addClass("selected");
 				
 			}
 	});
@@ -325,10 +334,10 @@ include("cp/r/funciones.php");
 			carrierid=selected.attr("class");
 			inserthtml();
 			$("#imei").attr("disabled", false);
-			$("#carrier").addClass("selected");
+			$(".styledCarrier").addClass("selected");
 		}else{
 				c++;
-				$("#carrier").removeClass("selected");
+				$(".styledCarrier").removeClass("selected");
 			}
 	});
 	
@@ -369,10 +378,10 @@ include("cp/r/funciones.php");
 			p=0;
 			$("#paymentH").val($("#payment").val());
 			$("#submit").attr("disabled", false);
-			$("#payment").addClass("selected");
+			$(".styledPayment").addClass("selected");
 		}else{
 				p++;
-				$("#payment").removeClass("selected");
+				$(".styledPayment").removeClass("selected");
 			}
 	});
 	
