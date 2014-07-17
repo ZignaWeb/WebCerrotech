@@ -31,6 +31,31 @@ $cpa = array (
 );
 
 $secciones=array(
+"prueba" => array (
+		"db" => "ag_prueba",
+		"t" => "prueba",
+		"l" => 0,
+		"p" => 1,
+		"a" => array (
+			"listar" => array ( "db" => "listar", "menu" => "menu", "t" =>$inline[$lang]["listar"], "p" => 1),
+			"editar" => array ( "db" => "editar", "menu" => "context", "t" =>$inline[$lang]["editar"], "p" => 1),
+			"delete" => array ( "db" => "delete", "menu" => "context", "t" =>$inline[$lang]["delete"], "p" => 1),
+			"cargar" => array ( "db" => "cargar", "menu" => "menu", "t" =>$inline[$lang]["cargar"], "p" => 1),
+			"export" => array ( "db" => "export", "menu" => "menu", "t" =>$inline[$lang]["export"], "p" => 99),
+			"medias" => array ( "db" => "medias", "menu" => "context", "t" =>$inline[$lang]["medias"], "p" => 1)
+		),
+		"c" => array (
+			"mostrar" => array("db" => "mostrar", "t" => $inline[$lang]["visibility"], "val" => "number", "type" => "check",
+						  "options" => array (1 => $inline[$lang]["Show"], 0 => $inline[$lang]["NoShow"])
+					),
+			"img" => array ( "db" => "imagen", "t" => $inline[$lang]["File"], "type" => "img", "dependency" =>"med", "val" => "file", "search" => 0, "hide"=>2,
+					"imgsizes" => array (
+						"thumb" => array ( "w" => 200, "h" => 200),
+						"grande" => array ( "w" => 300, "h" => "auto")
+					)
+				)
+		)
+	),
 
 	
 	"marcas" => array (
@@ -50,7 +75,7 @@ $secciones=array(
 			"nombre" 	=> array("db" => "nombre", "t" => "Nombre", "type" => "input", "val" => "varchar", "force" => 1, "search" => 1),
 			"creada" 	=> array("db" => "creada", "t" => $inline[$lang]["created"], "type" => "input", "val" => "datetime", "search" => 1, "hide" =>2, "autofill" =>$ahora),
 			"precio" 	=> array("db" => "precioM", "t" => "Precio Marca", "type" => "input", "val" => "number", "force" => 1, "search" => 1),
-			"mostrar" => array("db" => "mostrar", "t" => $inline[$lang]["visibility"], "val" => "number", "type" => "select",
+			"mostrar" => array("db" => "mostrar", "t" => $inline[$lang]["visibility"], "val" => "number", "type" => "check",
 						  "options" => array (1 => $inline[$lang]["Show"], 0 => $inline[$lang]["NoShow"])
 					),
 			"img" => array ( "db" => "imagen", "t" => $inline[$lang]["File"], "type" => "img", "dependency" =>"med", "val" => "file", "search" => 0, "hide"=>2,

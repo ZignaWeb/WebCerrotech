@@ -88,6 +88,13 @@
 						echo "<input type='radio' $check id='".$val["db"]."$key' name='".$val["db"]."' value='$key' /> <label for='".$val["db"]."$key' >$text</label>";
 					}
 				}
+				elseif($val["type"]=="check"){
+					echo "<div class=' $clase'>";
+					foreach($val["options"] as $key => $text){
+						if ($valor == $key){ $check = "checked";}else{$check="";}
+						echo "<input type='checkbox' $check id='".$val["db"]."$key' name='".$val["db"]."' value='$key' /> <label for='".$val["db"]."$key' >$text</label>";
+					}
+				}
 				// if true end
 				}else{
 					$dep["tabla"] = $_GET["q"];
