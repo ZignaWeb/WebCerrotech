@@ -46,7 +46,7 @@ $secciones=array(
 		),
 		"c" => array (
 			"mostrar" => array("db" => "mostrar", "t" => $inline[$lang]["visibility"], "val" => "number", "type" => "check",
-						  "options" => array (1 => $inline[$lang]["Show"], 0 => $inline[$lang]["NoShow"])
+						  "options" => array (1 => "Lunes", 2 => "Martes", 3 => "Miercoles", 4 => "Jueves", 5 => "Viernes", 6 => "Sabado", 7 => "Domingo")
 					),
 			"img" => array ( "db" => "imagen", "t" => $inline[$lang]["File"], "type" => "img", "dependency" =>"med", "val" => "file", "search" => 0, "hide"=>2,
 					"imgsizes" => array (
@@ -75,7 +75,7 @@ $secciones=array(
 			"nombre" 	=> array("db" => "nombre", "t" => "Nombre", "type" => "input", "val" => "varchar", "force" => 1, "search" => 1),
 			"creada" 	=> array("db" => "creada", "t" => $inline[$lang]["created"], "type" => "input", "val" => "datetime", "search" => 1, "hide" =>2, "autofill" =>$ahora),
 			"precio" 	=> array("db" => "precioM", "t" => "Precio Marca", "type" => "input", "val" => "number", "force" => 1, "search" => 1),
-			"mostrar" => array("db" => "mostrar", "t" => $inline[$lang]["visibility"], "val" => "number", "type" => "check",
+			"mostrar" => array("db" => "mostrar", "t" => $inline[$lang]["visibility"], "val" => "number", "type" => "select",
 						  "options" => array (1 => $inline[$lang]["Show"], 0 => $inline[$lang]["NoShow"])
 					),
 			"img" => array ( "db" => "imagen", "t" => $inline[$lang]["File"], "type" => "img", "dependency" =>"med", "val" => "file", "search" => 0, "hide"=>2,

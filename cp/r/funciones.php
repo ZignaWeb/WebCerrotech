@@ -326,11 +326,20 @@ function query($tquery){
 		return($datos);
 	
 }
-function debug_to_console( $data ) {
+function debug_to_console( $data ){
 
-    if ( is_array( $data ) )
-        $output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
-    else
+    if ( is_array( $data ) ){
+    	$var=implode( ',', $data);
+    while ( $i <= 10) {
+     	 if ( is_array( $var ) ){$output = "<script>console.log( 'Debug Objects: " .implode( ',', $var) . "' );</script>";}
+     	 $output = "<script>console.log( 'Debug Objects: " .$var . "' );</script>";
+     $i++;
+     } 
+    	
+   
+    
+       
+    }else
         $output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
 
     echo $output;

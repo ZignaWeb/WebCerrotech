@@ -78,23 +78,39 @@
 		$i=0;
 		$imgs=array();
 		$size=array();
-		foreach ($secciones[$_GET["q"]]["c"] as $val) {
+		foreach ($secciones[$_GET["q"]]["c"] as $key => $val) {
 			$i++;
-			if ($val["val"]!="date") {
-				$postv = $_POST[$val["db"]];
+			if ($val["type"]=="check") {
+				if(isset($_POST[$val["db"]])){
+					$f=0;
+					$checked = $_POST[$val["db"]];
+					for($i=0; $i < count($checked); $i++){
+						$postb .=$checked[$i];
+						$f=1;
+					}
+				}
+			}
+
+		if ($val["val"]!="date") {
+			$postv = $_POST[$val["db"]];
 			}else{
 				$postv = date('Y-n-j H:i:s', strtotime(str_replace('-', '/', $_POST[$val["db"]])));
 			}
-			
 			if ($postv!="" && $val["val"]!="file") {
-				if ($i>1){$q.=",";}
-				$q.=" `".$val["db"]."`='".$postv."'";
+								if($f==1){
+									$q.=" `".$val["db"]."`='".$postb."'";
+									debug_to_console($postb);
+									}else
+
+			{	if ($i>1){$q.=",";}
+				$q.=" `".$val["db"]."`='".$postv."'";}
 			}elseif($val["val"]=="file"){
 				array_push($imgs,$val["db"]);
 				array_push($size,$secciones[$_GET["dep_table"]]["c"]["img"]["imgsizes"]);
 			}elseif($postv=="" && (isset($val["force"]) && $val["force"]==1)){
 				$e.= str_replace("[:x:]",$val["t"],$error[$lang]["oneobli"]);
 			}
+
 			
 			if (isset($val["dependency"])) {
 				$dep["tabla"] = $_GET["q"];
@@ -107,7 +123,9 @@
 	  <a href="#" class="close">&times;</a> 
 	</div><a href="javascript:history.go(-1)">'.$inline[$lang]["goback"].'</a>';
 		}else{
+
 			if (mysql_query($q)){
+				
 				$lastid=mysql_insert_id();
 				echo $str[$lang]["cargado"].ucfirst($secciones[$_GET["q"]]["t"]);
 				logIntoHistory($ahora,$_SESSION["myuserid"],$str[$lang]["crear"].$secciones[$_GET["q"]]["t"],$q);

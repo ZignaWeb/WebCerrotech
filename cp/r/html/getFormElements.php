@@ -74,11 +74,21 @@
 							echo "<option value='".$gd["id"]."'>".$gd[$field]."</option>";
 						}
 						echo "</select> <a href='./?q=".$val["get"]."&a=cargar'> Agregar ".$secciones[$val["get"]]["t"]."</a>";
-					}				
+					}		
+					elseif($val["type"]=="check"){
+						echo "<div class=' $clase'>";
+						$i=0;
+						foreach($val["options"] as $key => $text){
+							echo "<input type='checkbox' id='".$val["db"]."$key' name='".$val["db"]."[]' value='$key' /> <label for='".$val["db"]."$key' >$text</label>";
+							$i++;
+						}
+						echo "</div>";
+					}		
 					// if true end	
 				
 				echo "</div>";
 			}
+			
 ?>
 <hr />
 					
