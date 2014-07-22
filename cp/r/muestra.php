@@ -42,7 +42,7 @@ $secciones=array(
 			"medias" => array ( "db" => "medias", "menu" => "context", "t" =>$inline[$lang]["medias"], "p" => 1)
 		),
 		"c" => array (
-			"mostrar" => array("db" => "mostrar", "t" => $inline[$lang]["visibility"], "val" => "text", "type" => "check",
+			"mostrar" => array("db" => "mostrar", "t" => $inline[$lang]["visibility"], "val" => "number", "type" => "check",
 						  "options" => array (1 => "Lunes", 2 => "Martes", 3 => "Miercoles", 4 => "Jueves", 5 => "Viernes", 6 => "Sabado", 7 => "Domingo")
 					),
 			"img" => array ( "db" => "imagen", "t" => $inline[$lang]["File"], "type" => "img", "dependency" =>"med", "val" => "file", "search" => 0, "hide"=>2,
@@ -314,3 +314,8 @@ $secciones=array(
 	)
 );
 ?>
+<pre>
+<?
+print_r($secciones);
+?>
+</pre>

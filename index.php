@@ -1,4 +1,4 @@
-﻿<?
+<?
 include("cp/r/sql.php"); 
 include("cp/r/funciones.php"); 
 ?>
@@ -58,6 +58,9 @@ include("cp/r/funciones.php");
   <div class="large-12 columns">
     <div class="row content-wrap">
     
+
+
+
       <!-- Thumbnails -->
 
       <div class="large-3 small-6 columns text-center">
@@ -93,6 +96,8 @@ include("cp/r/funciones.php");
 															";
 													$tq=mysql_query($tt);
 													$tc=mysql_num_rows($tq);
+													
+
 													while($td=mysql_fetch_assoc($tq)){
 														$modelo[]=$td["modelo"];
 														$marcaid[]=$td["marcaid"];	
@@ -132,31 +137,29 @@ include("cp/r/funciones.php");
           <option value="placeholder">Seleccioná una opción</option>                
          </optgroup>  
          				<? 
-										$ct="SELECT id,pais,nombre AS carrier
-											 FROM ag_carrier
-											 WHERE 1
-											 ";
+									$ct="SELECT id,pais,nombre AS carrier
+											FROM ag_carrier
+											WHERE 1
+											";
 									$cq=mysql_query($ct);
 									$acount=0;
 									$ucount=0;
 									while($cd=mysql_fetch_assoc($cq)){
-													if($cd["pais"]==0)
-													{	
-														$acount++;
-														$arg[]=$cd["carrier"];
-														$acarrier[]=$cd["id"];
-													}
-													elseif($cd["pais"]==1)
-													{	 
-														$ucount++;
-														$usa[]=$cd["carrier"];
-														$ucarrier[]=$cd["id"];
-													}
+										if($cd["pais"]==0){	
+											$acount++;
+											$arg[]=$cd["carrier"];
+											$acarrier[]=$cd["id"];
+										}
+										elseif($cd["pais"]==1){	 
+											$ucount++;
+											$usa[]=$cd["carrier"];
+											$ucarrier[]=$cd["id"];
+										}
 									}
-									
 								?>                      	
                 <optgroup label="Argentina">
                 	<?
+
                   	for($i=0;$i<$acount;$i++)
 										{
 											echo'<option value="'.$arg[$i].'" class="'.$acarrier[$i].'">'.$arg[$i].'</option>';
@@ -167,6 +170,7 @@ include("cp/r/funciones.php");
                 </optgroup>
                 <optgroup label="Estados Unidos">
                     	<?
+                    
                   	for($i=0;$i<$ucount;$i++)
 										{
 											echo'<option value="'.$usa[$i].'" class="'.$ucarrier[$i].'">'.$usa[$i].'</option>';
@@ -175,11 +179,12 @@ include("cp/r/funciones.php");
                 </optgroup>
             </select>
         </form>
+        
         </div>
         Indica que operador maneja tus llamadas (Personal, Claro, etc.)
         </h6>
       </div>
-
+      
       <div class="large-3 small-6 columns text-center">
        <img class="steps-img" src="img/tres.png">
        
@@ -304,12 +309,11 @@ include("cp/r/funciones.php");
     $( "#speed" ).selectmenu();
   });
 
-	
 	$("#brand").change(function(){
 			if($("#brand").val() != "placeholder"){
 				b=0;
 				selected = $(':selected', this);
-				$("#modelH").val($("#brand").val());
+			     	$("#modelH").val($("#brand").val());
 				$("#brandH").val(selected.closest('optgroup').attr('label'));
 				telid=selected.attr("class");
 				marcid=selected.attr("id");
@@ -324,7 +328,6 @@ include("cp/r/funciones.php");
 				
 			}
 	});
-	
 	$("#carrier").change(function(){
 		if($("#carrier").val() != "placeholder"){
 			 c=0;

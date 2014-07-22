@@ -91,8 +91,11 @@
 				elseif($val["type"]=="check"){
 					echo "<div class=' $clase'>";
 					foreach($val["options"] as $key => $text){
-						if ($valor == $key){ $check = "checked";}else{$check="";}
-						echo "<input type='checkbox' $check id='".$val["db"]."$key' name='".$val["db"]."' value='$key' /> <label for='".$val["db"]."$key' >$text</label>";
+						
+						$chkd=explode(" ",$valor);
+						debug_to_console($valor);
+							if ($valor == $key){ $check = "checked";}else{$check="";}
+							echo "<input type='checkbox' id='".$val["db"]."$key' name='".$val["db"]."[]' value='$key' /> <label for='".$val["db"]."$key' >$text</label>";
 					}
 				}
 				// if true end
@@ -157,7 +160,13 @@
 		foreach ($secciones[$_GET["q"]]["c"] as $val) {
 			$i++;
 			if ($val["val"]!="date") {
-				$postv = $_POST[$val["db"]];
+				if($val["type"]=="check"){
+					$posts = $_POST[$val["db"]];
+					for($j=0; $j < count($posts); $j++){
+							$postv .=$posts[$j].',';
+						}
+					}else
+					$postv = $_POST[$val["db"]];
 			}else{
 				$postv = date($fDateTime, strtotime(str_replace('-', '/', $_POST[$val["db"]])));
 			}
