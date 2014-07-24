@@ -76,6 +76,7 @@
 		$q="INSERT INTO `".$secciones[$_GET["q"]]["db"]."` SET ";
 		$e="";
 		$i=0;
+		$f=0;
 		$imgs=array();
 		$size=array();
 		foreach ($secciones[$_GET["q"]]["c"] as $val) {
@@ -90,7 +91,8 @@
 							*cambiar de la arq a tipo text DONE
 							*borrar y reinstalar la tabla DONE
 							**/
-							$postv .=$posts[$j].',';
+							if($f==0){$postv .=$posts[$j];$f++;}
+							else{$postv .=','.$posts[$j];}
 						}
 					}else
 					$postv = $_POST[$val["db"]];

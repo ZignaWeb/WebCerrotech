@@ -88,14 +88,15 @@
 						echo "<input type='radio' $check id='".$val["db"]."$key' name='".$val["db"]."' value='$key' /> <label for='".$val["db"]."$key' >$text</label>";
 					}
 				}
+				
 				elseif($val["type"]=="check"){
 					echo "<div class=' $clase'>";
 					foreach($val["options"] as $key => $text){
 						
-						$chkd=explode(" ",$valor);
-						debug_to_console($valor);
-							if ($valor == $key){ $check = "checked";}else{$check="";}
-							echo "<input type='checkbox' id='".$val["db"]."$key' name='".$val["db"]."[]' value='$key' /> <label for='".$val["db"]."$key' >$text</label>";
+						$chkd=explode(",",$valor);
+						debug_to_console($chkd);
+							if (in_array($key, $chkd)){ $check = "checked";}else{$check="";}
+							echo "<input $check type='checkbox' id='".$val["db"]."$key' name='".$val["db"]."[]' value='$key' /> <label for='".$val["db"]."$key' >$text</label>";
 					}
 				}
 				// if true end
@@ -155,6 +156,7 @@
 		$q="UPDATE `".$secciones[$_GET["q"]]["db"]."` SET ";
 		$e="";
 		$i=0;
+		$f=0;
 		$imgs=array();
 		$size=array();
 		foreach ($secciones[$_GET["q"]]["c"] as $val) {
@@ -163,7 +165,8 @@
 				if($val["type"]=="check"){
 					$posts = $_POST[$val["db"]];
 					for($j=0; $j < count($posts); $j++){
-							$postv .=$posts[$j].',';
+							if($f==0){$postv .=$posts[$j];$f++;}
+							else{$postv .=','.$posts[$j];}
 						}
 					}else
 					$postv = $_POST[$val["db"]];

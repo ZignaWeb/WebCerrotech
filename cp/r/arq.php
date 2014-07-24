@@ -5,7 +5,7 @@
 # a			: acciones posibles
 # t 		: texto a mostrar en pantallla
 # db		: correspondencia en la base de datos
-# type 		: tipo de elemento en formulario - drop / input / textarea / select
+# type 		: tipo de elemento en formulario - drop / input / textarea / select /checkbox(text)
 # menu		: como mostrar - menu principal (top) / menu contextual (context)
 # get   	: espera un id que corresponde a la tabla definida por get
 # val   	: tipo de valor ingresado - varchar / text / file / email / number / date / datetime
@@ -17,6 +17,25 @@
 # dependency: poblar con los datos de a una tabla de la autogestion
 # array		: poblar con los datos de un array definido en data.php
 */
+
+/*
+*Constantes para SEARCH
+*/
+define("searchable", 1);
+define("nosearchable", 0);
+
+/*
+*Constantes para HIDE
+*/
+define("showinline", 0);
+define("showpop", 1);
+define("noshow", 2);
+/*
+*Constantes para FORCE
+*/
+define("NO", 0);
+define("SI", 1);
+
 $cpa = array (
 	"cpa" => array (
 		"t" => $inline[$lang]["cp"],
@@ -27,32 +46,103 @@ $cpa = array (
 		)
 	)
 );
-$secciones=array(
-"prueba" => array (
-		"db" => "ag_prueba",
-		"t" => "prueba",
-		"l" => 0,
-		"p" => 1,
-		"a" => array (
-			"listar" => array ( "db" => "listar", "menu" => "menu", "t" =>$inline[$lang]["listar"], "p" => 1),
-			"editar" => array ( "db" => "editar", "menu" => "context", "t" =>$inline[$lang]["editar"], "p" => 1),
-			"delete" => array ( "db" => "delete", "menu" => "context", "t" =>$inline[$lang]["delete"], "p" => 1),
-			"cargar" => array ( "db" => "cargar", "menu" => "menu", "t" =>$inline[$lang]["cargar"], "p" => 1),
-			"export" => array ( "db" => "export", "menu" => "menu", "t" =>$inline[$lang]["export"], "p" => 99),
-			"medias" => array ( "db" => "medias", "menu" => "context", "t" =>$inline[$lang]["medias"], "p" => 1)
-		),
-		"c" => array (
-			"mostrar" => array("db" => "mostrar", "t" => $inline[$lang]["visibility"], "val" => "text", "type" => "check",
-						  "options" => array (1 => "Lunes", 2 => "Martes", 3 => "Miercoles", 4 => "Jueves", 5 => "Viernes", 6 => "Sabado", 7 => "Domingo")
-					),
-			"img" => array ( "db" => "imagen", "t" => $inline[$lang]["File"], "type" => "img", "dependency" =>"med", "val" => "file", "search" => 0, "hide"=>2,
-					"imgsizes" => array (
-						"thumb" => array ( "w" => 200, "h" => 200),
-						"grande" => array ( "w" => 300, "h" => "auto")
-					)
-				)
-		)
-	),
+$secciones=
+array
+(
+	"prueba" => array (
+	"db" => "ag_prueba",
+	"t" => "prueba",
+	"l" => 0,
+	"p" => 1,
+	"a" => array 
+			(
+				"listar" => array 
+									(
+										 "db" 	 => "listar", 
+										 "menu" => "menu", 
+										 "t" 		=>$inline[$lang]["listar"], 
+										 "p" 		=> 1
+										),
+				"editar" => array 
+									( 
+										"db"	 => "editar", 
+										"menu" => "context", 
+										"t" 		=>$inline[$lang]["editar"], 
+										"p" 		=> 1
+									),
+				"delete" => array 
+									( 
+										"db" 	 => "delete", 
+										"menu" => "context", 
+										"t" 		=>$inline[$lang]["delete"], 
+										"p" 		=> 1
+									),
+				"cargar" => array 
+									( 
+										"db"	 => "cargar", 
+										"menu" => "menu", 
+										"t" 		=>$inline[$lang]["cargar"], 
+										"p"	  => 1
+									),
+				"export" => array 
+									( 
+										"db"	 => "export", 
+										"menu" => "menu", 
+										"t" 		=>$inline[$lang]["export"], 
+										"p" 		=> 99
+									),
+				"medias" => array 
+									( 
+										"db" 	 => "medias", 
+										"menu" => "context", 
+										"t" 		=>$inline[$lang]["medias"], 
+										"p" 		=> 1
+									),
+			),
+	"c" => array 
+			(
+				"mostrar" => array
+									(
+										"db" 			=> "mostrar", 
+										"t" 			 => $inline[$lang]["visibility"], 
+										"val" 		 => "text", 
+										"type" 		=> "check",
+						  			"options" => array 
+															(
+																1 => "Lunes", 
+																2 => "Martes", 
+																3 => "Miercoles", 
+																4 => "Jueves", 
+																5 => "Viernes", 
+																6 => "Sabado", 
+																7 => "Domingo"
+																)
+									),
+				"img" => array 
+							( 
+								"db" 				 => "imagen", 
+								"t" 					=> $inline[$lang]["File"], 
+								"type" 			 => "img", 
+								"dependency" =>"med", 
+								"val" 				=> "file", 
+								"search" 		 => 0, "hide"=>2,
+								"imgsizes" 	 => array 
+														 (
+																"thumb" => array 
+																				( 
+																					"w" => 200, 
+																					"h" => 200
+																				),
+																"grande" => array 
+																				 ( 
+																						"w" => 300, 
+																						"h" => "auto"
+																					)
+														 )
+							)
+			)
+),
+	
 	"marcas" => array (
 		"db" => "ag_marcas",
 		"t" => "Marcas",
