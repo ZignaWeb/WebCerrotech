@@ -262,10 +262,10 @@ include("cp/r/funciones.php");
             </div>
 
             <div class="small-12 columns">
-              <p>Tenes alguna consulta? Mandanos un email o escribinos por whatsapp! Uno de nuestros técnicos te responderá a la brevedad!<br>
-    Whatsapp:5555555<br> 
-	contacto@cerrotech.com<br>
-	facebook.com/cerrotech</p>
+              <p>Tenes alguna consulta? Mandanos un email o escribinos por whatsapp! Uno de nuestros técnicos te responderá a la brevedad!</p>
+    <p class="wp">351 5 555555 </p>
+	<p class="mail">contacto@cerrotech.com</p>
+	<p class="fb">facebook.com/cerrotech</p>
             </div>
           </div>
         </div>
@@ -282,7 +282,10 @@ include("cp/r/funciones.php");
 
     <div id="footer" class="row">
       <div class="large-12 small-12 columns">
-        <p>© Copyright 2014 CERROTECH, CÓRDOBA, ARGENTINA. Cerrotech proporciona y garantiza el código de desbloqueo para tu celular. Si tu celular esta dado de baja, o en banda negativa, o con los intentos agotados para ingresar el código, no se reembolsará el dinero en estos casos. Si de todas maneras usted quiere el código, sera bajo su responsabilidad. Por estas razones, asegurate que tu equipo cumpla con estas condiciones, para que de esta manera puedas liberar tu celular exitosamente! Cualquier ayuda que necesites utiliza nuestros medios de contacto, y en breve te responderemos!</p>
+        <p>© Copyright 2014 CERROTECH, CÓRDOBA, ARGENTINA. Cerrotech proporciona y garantiza el código de desbloqueo para tu celular. Si tu celular esta dado 
+de baja, o en banda negativa, o con los intentos agotados para ingresar el código, no se reembolsará el dinero en estos casos. Si de todas maneras usted quiere el código, sera 
+bajo su responsabilidad. Por estas razones, asegurate que tu equipo cumpla con estas condiciones, para que de esta manera puedas liberar tu celular exitosamente! Le recordamos 
+que no trabajamos sobre equipos robados , no pierda su valioso tiempo, Cualquier ayuda que necesites utiliza nuestros medios de contacto, y en breve te responderemos!</p>
       </div>
 
      
@@ -304,139 +307,142 @@ include("cp/r/funciones.php");
 		});
     </script>
 	<script>	
-	var brand, carrier, imei, mail, payment,carrierid=null,telid,marcid,selected,b=0,c=0,i=0,m=0,p=0;
-	 $(function() {
-    $( "#speed" ).selectmenu();
-  });
-
-	$("#brand").change(function(){
-			if($("#brand").val() != "placeholder"){
-				b=0;
+$(document).ready(function(e) {
+  
+		var brand, carrier, imei, mail, payment,carrierid=null,telid,marcid,selected,b=0,c=0,i=0,m=0,p=0;
+		 $(function() {
+			$( "#speed" ).selectmenu();
+		});
+	
+		$("#brand").change(function(){
+				if($("#brand").val() != "placeholder"){
+					b=0;
+					selected = $(':selected', this);
+							$("#modelH").val($("#brand").val());
+					$("#brandH").val(selected.closest('optgroup').attr('label'));
+					telid=selected.attr("class");
+					marcid=selected.attr("id");
+					if(carrierid!=null){
+						inserthtml();
+					 }
+					$("#carrier").attr("disabled", false);
+					$(".styledBrand").addClass("selected");
+				}else{
+					b++;
+					$(".styledBrand").addClass("selected");
+					
+				}
+		});
+		$("#carrier").change(function(){
+			if($("#carrier").val() != "placeholder"){
+				 c=0;
 				selected = $(':selected', this);
-			     	$("#modelH").val($("#brand").val());
-				$("#brandH").val(selected.closest('optgroup').attr('label'));
-				telid=selected.attr("class");
-				marcid=selected.attr("id");
-				if(carrierid!=null){
-					inserthtml();
-				 }
-				$("#carrier").attr("disabled", false);
-				$(".styledBrand").addClass("selected");
+				$("#carrierH").val($("#carrier").val());
+				$("#paisH").val(selected.closest('optgroup').attr('label'));
+				carrierid=selected.attr("class");
+				inserthtml();
+				$("#imei").attr("disabled", false);
+				$(".styledCarrier").addClass("selected");
 			}else{
-				b++;
-				$(".styledBrand").addClass("selected");
-				
-			}
-	});
-	$("#carrier").change(function(){
-		if($("#carrier").val() != "placeholder"){
-			 c=0;
-			selected = $(':selected', this);
-			$("#carrierH").val($("#carrier").val());
-			$("#paisH").val(selected.closest('optgroup').attr('label'));
-			carrierid=selected.attr("class");
-			inserthtml();
-			$("#imei").attr("disabled", false);
-			$(".styledCarrier").addClass("selected");
-		}else{
-				c++;
-				$(".styledCarrier").removeClass("selected");
-			}
-	});
-	
-	$("#imei").change(function(){
-	var len=$("#imei").val().length;
-	if(len == 15){
-			i=0;
-			$("#imeiH").val($("#imei").val());
-			$("#mail").attr("disabled", false);
-			$("#imei").addClass("selected");
-	} else{
-		i++;
-		$("#imei").removeClass("selected");
-		alert("Ingrese un IMEI valido");
-	}
-	});
-	
-	
-	$("#mail").change(function(){
-		expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-		var email=document.querySelector('[name="mail"]').value;
-		if($("#mail").val() != "placeholder" ){
-			if(!expr.test(email)){
-				 m++;
-				 $("#mail").removeClass("selected");
-			alert("Error: La dirección de correo " + email + " es incorrecta.");
+					c++;
+					$(".styledCarrier").removeClass("selected");
+				}
+		});
+		
+		$("#imei").change(function(){
+		var len=$("#imei").val().length;
+		if(len == 15){
+				i=0;
+				$("#imeiH").val($("#imei").val());
+				$("#mail").attr("disabled", false);
+				$("#imei").addClass("selected");
+		} else{
+			i++;
+			$("#imei").removeClass("selected");
+			alert("Ingrese un IMEI valido");
+		}
+		});
+		
+		
+		$("#mail").change(function(){
+			expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+			var email=document.querySelector('[name="mail"]').value;
+			if($("#mail").val() != "placeholder" ){
+				if(!expr.test(email)){
+					 m++;
+					 $("#mail").removeClass("selected");
+				alert("Error: La dirección de correo " + email + " es incorrecta.");
+				}else{
+					m=0;
+					$("#mailH").val($("#mail").val());
+					 $("#payment").attr("disabled", false);
+					 $("#mail").addClass("selected");
+					}	
+				}
+		});
+		
+		$("#payment").change(function(){
+			if($("#payment").val() != "placeholder"){
+				p=0;
+				$("#paymentH").val($("#payment").val());
+				$("#submit").attr("disabled", false);
+				$(".styledPayment").addClass("selected");
 			}else{
-				m=0;
-				$("#mailH").val($("#mail").val());
-				 $("#payment").attr("disabled", false);
-				 $("#mail").addClass("selected");
-				}	
-			}
-	});
-	
-	$("#payment").change(function(){
-		if($("#payment").val() != "placeholder"){
-			p=0;
-			$("#paymentH").val($("#payment").val());
-			$("#submit").attr("disabled", false);
-			$(".styledPayment").addClass("selected");
-		}else{
-				p++;
-				$(".styledPayment").removeClass("selected");
-			}
-	});
-	
-	
-	
-	function inserthtml(){
-	$.get("getprecio.php", { carrier:carrierid, tel:telid ,marca:marcid},function(data){
-	$("#insert").html(data);
-	$("#preH").val(data);
-	});
-	}
-	
-	$('.pedido').submit(function(event) {
-		event.preventDefault();
-		if(b==0 && c==0 && i==0 && m==0 && p==0){
-			$("#enviando").fadeIn();
-			var url = $(this).attr('action');
-			var datos = $(this).serialize();
-	 
-			$.post(url, datos, function(resultado) {
-				$("#enviando").fadeOut();
-				$('#mensaje').html(resultado);
-				$( "#dialog" ).dialog({
-						autoOpen: true,
-						 show: {
-        					effect: "blind",
-        					duration: 1000
-      						},
-    			  hide: {
-									effect: "explode",
-									duration: 1000
-								},
-						closeOnEscape:false,
-						width: 400,
-						buttons: [
-							{
-								text: "Cerrar",
-								click: function() {
-									document.location.href = "http://cerrotech.com";
+					p++;
+					$(".styledPayment").removeClass("selected");
+				}
+		});
+		
+		
+		
+		function inserthtml(){
+		$.get("getprecio.php", { carrier:carrierid, tel:telid ,marca:marcid},function(data){
+		$("#insert").html(data);
+		$("#preH").val(data);
+		});
+		}
+		
+		$('.pedido').submit(function(event) {
+			event.preventDefault();
+			if(b==0 && c==0 && i==0 && m==0 && p==0){
+				$("#enviando").fadeIn();
+				var url = $(this).attr('action');
+				var datos = $(this).serialize();
+		 
+				$.post(url, datos, function(resultado) {
+					$("#enviando").fadeOut();
+					$('#mensaje').html(resultado);
+					$( "#dialog" ).dialog({
+							autoOpen: true,
+							 show: {
+										effect: "blind",
+										duration: 1000
+										},
+							hide: {
+										effect: "explode",
+										duration: 1000
+									},
+							closeOnEscape:false,
+							width: 400,
+							buttons: [
+								{
+									text: "Cerrar",
+									click: function() {
+										document.location.href = "http://cerrotech.com";
+									}
 								}
-							}
-						]
-					});
-			});
-		}else{
-			alert("TODOS LOS CAMPOS SON OBLIGATORIOS")
-			}
-	});
-	$(".ui-dialog-titlebar-close").click(function(event){
-					event.preventDefault();
-					document.location.href = "http://cerrotech.com";
-	});
+							]
+						});
+				});
+			}else{
+				alert("TODOS LOS CAMPOS SON OBLIGATORIOS")
+				}
+		});
+		$(".ui-dialog-titlebar-close").click(function(event){
+						event.preventDefault();
+						document.location.href = "http://cerrotech.com";
+		});
+});
 </script>
 <script src="js/jquery.js"></script>
 <script src="js/jquery-ui.js"></script>
