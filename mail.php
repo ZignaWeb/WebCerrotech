@@ -83,9 +83,9 @@ $mensaje='<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http:
                 <p style="font-size: 17px;margin: 0;">Estas en el ultimo paso para liberar tu celular!</br>
  Para completar tu liberación ,solo debes pagar y enviar el comprobante de pago a este mail<br/>
 ( puedes clickear en  ́Responder mail ́ , o enviar un nuevo mail a contacto@cerrotech.com). <br />
-Si pagaste mediante Rapipago o Pagofacil o Cobroexpress, envía una foto del comprobante.</br> 
-Si pagaste mediante Dineromail, envía el numero de transacción con tu usuario de dineromail.</br> 
-Si pagaste mediante transferencia bancaria, envía una foto del comprobante de la transacción.</br></br>
+Si pagaste mediante Rapipago o Pagofacil o Cobroexpress, envía una foto del comprobante.<br /> 
+Si pagaste mediante Dineromail, envía el numero de transacción con tu usuario de dineromail.<br />
+Si pagaste mediante transferencia bancaria, envía una foto del comprobante de la transacción.<br /><br />
 
 Asi de fácil! </br></br>
 
